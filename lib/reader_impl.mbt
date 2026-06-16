@@ -128,6 +128,14 @@ pub fn[T] LimitedReader::LimitedReader(
   { reader, limit, end_group: None, end_group_seen: false }
 }
 
+#deprecated
+pub fn[T] LimitedReader::new(
+  reader : T,
+  limit? : Int,
+) -> LimitedReader[T] {
+  { reader, limit, end_group: None, end_group_seen: false }
+}
+
 ///|
 pub impl[T : Reader] Reader for LimitedReader[T] with fn read(
   self,
